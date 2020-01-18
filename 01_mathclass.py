@@ -10,13 +10,13 @@ num_lst = sorted(num_lst, key = lambda x:int(x), reverse = False)
 def find_min():
     return num_lst[0]
 
-#print(find_min())
+print("Minimum: ",find_min())
 
 def find_max():
     x = len(num_lst)
     return num_lst[x-1]
 
-#print(find_max())
+print("Maximum: ",find_max())
 
 def find_mean():
     count = 0 
@@ -25,7 +25,7 @@ def find_mean():
     mean = count/len(num_lst)
     return mean 
 
-#print(find_mean())
+print("Mean: ",find_mean())
 
 def find_median():
     x = len(num_lst)//2
@@ -36,7 +36,7 @@ def find_median():
         median = num_lst[y-1]
     return median 
 
-#print(find_median())
+print("Median: ",find_median())
 
 def find_mode():
     from collections import Counter
@@ -59,11 +59,11 @@ def find_mode():
             m == m 
     return m 
     
-#print(find_mode())
+print("Mode: ", find_mode())
 
 
 def find_range():
     r = int(num_lst[-1]) - int(num_lst[0])
     return r
 
-print(find_range())
+print("Range: ",find_range())
