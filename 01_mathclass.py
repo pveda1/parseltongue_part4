@@ -2,7 +2,10 @@ import sys
 g = sys.argv
 num_lst = list(g)
 del num_lst[0]
-num_lst = sorted(num_lst, key = lambda x: (int(x)), reverse = False)
+for x in num_lst:
+    x = int(x)
+num_lst = sorted(num_lst, key = lambda x:int(x), reverse = False)
+
 
 def find_min():
     return num_lst[0]
@@ -36,24 +39,31 @@ def find_median():
 #print(find_median())
 
 def find_mode():
-    d = {}
-    for x in num_lst:
-        if x not in d:
-            d[x] = num_lst.count(x)
-        else: 
-            d[x] = d[x]+1
-    values = d.values()
-    key = d.keys()
-    m_value = list(key)[0]
-    for ch in d:
-        if int(d[ch]) > int(m_value):
-            m_value = ch
+    from collections import Counter
+    count = dict(Counter(num_lst))
+    count1 = sorted(count, key = lambda x: (count[x]), reverse = True)
+    mod = []
+    m_value = list(count1)[0]
+    if count[m_value] != 1:
+        mod.append(m_value)
+    for x in count1:
+        if count[x] == count[m_value]:
+            mod.append(x)
         else:
-            ch == ch 
-    return m_value
+            x == x
+    m = []
+    for ch in mod:
+        if ch not in m:
+            m.append(ch)
+        else: 
+            m == m 
+    return m 
+    
+#print(find_mode())
 
-print(find_mode())
 
+def find_range():
+    r = int(num_lst[-1]) - int(num_lst[0])
+    return r
 
-
-
+print(find_range())
