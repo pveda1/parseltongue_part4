@@ -57,7 +57,7 @@ def find_mode():
             m.append(ch)
         else: 
             m == m 
-    return m 
+    return m
     
 print("Mode: ", find_mode())
 
