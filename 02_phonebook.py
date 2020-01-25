@@ -8,7 +8,7 @@ key_list = list(d.keys())
 value_list = list(d.values())
 repeats = []
 duplicates = {}
-final = {}
+final = []
 
 for x in value_list:
     if x not in repeats:
@@ -21,6 +21,9 @@ for x in value_list:
 for x in duplicates:
     for ch in d:
         if x == d[ch]:
+            final.append(ch)
+        else:
+            ch == ch 
             
 
 #for x in duplicates:
@@ -32,13 +35,15 @@ for x in duplicates:
 print("** Shared First Names! **")
 print(final)
 print(repeats)
-print(duplicates)
+for x in duplicates:
+    print(x, "("+str(duplicates[x])+")"+":", )
+
 
 
 
 
     
 
-#print(d)
+print(d)
 #print(key_list)
 #print(value_list)
