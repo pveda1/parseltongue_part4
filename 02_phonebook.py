@@ -1,8 +1,12 @@
 d = {}
+h = {}
 f = open("/nfs/2019/p/pveda/Desktop/names.txt", 'r')
 for line in f:
     (key, value) = line.split()
-    d[key] = value
+    if key not in d:
+        d[key] = value
+    elif key in d:
+        h[key] = value
 
 key_list = list(d.keys())
 value_list = list(d.values())
@@ -17,33 +21,33 @@ for x in value_list:
         duplicates[x] = 2
     elif x in duplicates:
         duplicates[x] += 1
-
-for x in duplicates:
-    for ch in d:
-        if x == d[ch]:
-            final.append(ch)
-        else:
-            ch == ch 
+print()
+print("** Shared Last Names! **")
+for ch in duplicates:
+    for a in d:
+        if d[a] == ch:
+            final.append(a)
+    print(ch, "("+str(duplicates[ch])+")"+":", final)
+    final = []
             
+repeat = []
+duplicate = {}
+finals = []
 
-#for x in duplicates:
- #   if x in final:
-  #      x == x 
-   # elif x in d:
-    #    final[x] = d[x]
+for x in key_list:
+    if x in duplicate:
+        duplicate[x] += 1
+    elif x in h:
+        repeat.append(x)
+        duplicate[x] = 2
+
+print()
 
 print("** Shared First Names! **")
-print(final)
-print(repeats)
-for x in duplicates:
-    print(x, "("+str(duplicates[x])+")"+":", )
+for c in repeat:
+    finals.append(d[c])
+    finals.append(h[c])
+    print(c, "("+str(duplicate[c])+")"+":", finals)
+    finals = []
 
 
-
-
-
-    
-
-print(d)
-#print(key_list)
-#print(value_list)
